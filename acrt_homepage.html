@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ACRT – AIMCAANA Centre for Resuscitation Training</title>
+  <!-- Tailwind CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    /* Simple custom animations */
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(10px);} to { opacity: 1; transform: translateY(0);} }
+    .fade-in-up { animation: fadeInUp 700ms ease both; }
+    @keyframes pulseShadow { 0% { box-shadow: 0 6px 20px rgba(2,6,23,0.08);} 50% { box-shadow: 0 12px 30px rgba(2,6,23,0.12);} 100% { box-shadow: 0 6px 20px rgba(2,6,23,0.08);} }
+    .pulse-shadow { animation: pulseShadow 2.5s infinite; }
+    /* simple mobile nav backdrop */
+    .backdrop { background: rgba(0,0,0,0.4); }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800 leading-relaxed">
+
+  <!-- NOTE: Place your logo file as `logo.png` in your project's public/ folder. I created optimized files in /acrt_logos/ in the workspace. -->
+
+  <!-- Header / Nav -->
+  <header class="bg-white shadow sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="/logo.png" alt="ACRT logo" class="h-12 w-12 object-contain rounded-md shadow-sm" />
+        <div>
+          <h1 class="text-lg font-bold">ACRT</h1>
+          <p class="text-xs text-slate-500">AIMCAANA Centre for Resuscitation Training</p>
+        </div>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-4">
+        <a href="#home" class="hover:underline">Home</a>
+        <a href="#about" class="hover:underline">About</a>
+        <a href="#courses" class="hover:underline">Courses</a>
+        <a href="#schedule" class="hover:underline">Schedule</a>
+        <a href="#contact" class="hover:underline">Contact</a>
+        <a href="https://forms.gle/F4zgvXak24ZthJP57" class="ml-3 bg-blue-600 text-white px-3 py-2 rounded-lg font-semibold hover:bg-blue-700">Register</a>
+      </nav>
+
+      <div class="md:hidden">
+        <button id="mobileBtn" aria-label="menu" class="p-2 bg-blue-600 text-white rounded">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="fixed inset-0 hidden z-40">
+    <div class="h-full backdrop flex justify-end">
+      <div class="w-72 bg-white h-full p-4 shadow-lg">
+        <button id="closeMobile" class="text-slate-700 mb-4">Close ✕</button>
+        <nav class="flex flex-col gap-3">
+          <a href="#home" class="font-semibold" onclick="closeMenu()">Home</a>
+          <a href="#about" onclick="closeMenu()">About</a>
+          <a href="#courses" onclick="closeMenu()">Courses</a>
+          <a href="#schedule" onclick="closeMenu()">Schedule</a>
+          <a href="#contact" onclick="closeMenu()">Contact</a>
+          <a href="https://forms.gle/F4zgvXak24ZthJP57" class="mt-3 bg-blue-600 text-white px-3 py-2 rounded" target="_blank">Register</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section id="home" class="text-center py-16 bg-gradient-to-b from-blue-50 to-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <img src="/logo.png" alt="ACRT logo large" class="mx-auto h-28 w-28 object-contain mb-4 fade-in-up" />
+      <h2 class="text-3xl md:text-4xl font-extrabold mb-3 fade-in-up">Save lives — Learn BLS with ACRT</h2>
+      <p class="text-lg md:text-xl text-slate-600 mb-6">Empowering healthcare providers and the public with American Heart Association–aligned Basic Life Support training.</p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+        <a href="https://forms.gle/F4zgvXak24ZthJP57" target="_blank" class="px-6 py-3 rounded-lg bg-blue-600 text-white font-bold shadow hover:bg-blue-700 transition transform hover:-translate-y-0.5">Register for BLS Training</a>
+        <a href="#courses" class="px-6 py-3 rounded-lg border font-semibold hover:bg-slate-100">View Courses</a>
+      </div>
+
+      <p class="mt-6 text-sm text-slate-500">Located at Allama Iqbal Medical College, Lahore • Contact: +92 322 2745619</p>
+    </div>
+  </section>
+
+  <!-- Quick stats / features -->
+  <section class="max-w-6xl mx-auto px-4 py-12 grid md:grid-cols-3 gap-4">
+    <div class="p-4 rounded bg-white border fade-in-up pulse-shadow">
+      <h4 class="font-semibold">AHA-aligned</h4>
+      <p class="text-sm text-slate-600">Curriculum follows American Heart Association guidelines.</p>
+    </div>
+    <div class="p-4 rounded bg-white border fade-in-up pulse-shadow" style="animation-delay:120ms">
+      <h4 class="font-semibold">Hands-on Training</h4>
+      <p class="text-sm text-slate-600">Manikins, AEDs, and real simulations for confidence under pressure.</p>
+    </div>
+    <div class="p-4 rounded bg-white border fade-in-up pulse-shadow" style="animation-delay:240ms">
+      <h4 class="font-semibold">Certification</h4>
+      <p class="text-sm text-slate-600">Receive recognized completion certificates on passing the course.</p>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="max-w-4xl mx-auto px-4 py-10 bg-white rounded-lg shadow-sm">
+    <h3 class="text-2xl font-bold mb-3">Our Mission</h3>
+    <p class="text-slate-700 mb-4">To deliver standardized, reliable, and life-saving emergency response training that increases survival from cardiac arrest and other emergencies in our community.</p>
+    <div class="grid md:grid-cols-2 gap-4">
+      <div>
+        <h4 class="font-semibold">Who we are</h4>
+        <p class="text-sm text-slate-600">ACRT is a training center run under AIMCAANA, providing BLS and first response courses with certified instructors.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold">Why it matters</h4>
+        <p class="text-sm text-slate-600">Early CPR and defibrillation dramatically improve survival. We teach practical skills people can use today.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Courses -->
+  <section id="courses" class="max-w-6xl mx-auto px-4 py-10">
+    <h3 class="text-2xl font-bold mb-4">Courses</h3>
+    <div class="grid md:grid-cols-3 gap-4">
+      <div class="border rounded p-4 bg-white">
+        <h4 class="font-semibold">Basic Life Support (BLS)</h4>
+        <p class="text-sm text-slate-600">Hands-on adult, child & infant CPR, AED use, team dynamics. Duration: 1 day.</p>
+        <a href="https://forms.gle/F4zgvXak24ZthJP57" target="_blank" class="inline-block mt-3 text-blue-600 underline">Register</a>
+      </div>
+      <div class="border rounded p-4 bg-white">
+        <h4 class="font-semibold">BLS Instructor</h4>
+        <p class="text-sm text-slate-600">For experienced providers who want to teach BLS. Duration: 2 days.</p>
+        <a href="https://forms.gle/F4zgvXak24ZthJP57" target="_blank" class="inline-block mt-3 text-blue-600 underline">Register</a>
+      </div>
+      <div class="border rounded p-4 bg-white">
+        <h4 class="font-semibold">First Aid Essentials</h4>
+        <p class="text-sm text-slate-600">Wound care, burns, choking, and emergency stabilization. Duration: 1 day.</p>
+        <a href="https://forms.gle/F4zgvXak24ZthJP57" target="_blank" class="inline-block mt-3 text-blue-600 underline">Register</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Schedule (example) -->
+  <section id="schedule" class="max-w-4xl mx-auto px-4 py-10 bg-white rounded-lg shadow-sm">
+    <h3 class="text-2xl font-bold mb-4">Upcoming Schedule</h3>
+    <div class="overflow-x-auto">
+      <table class="w-full border-collapse">
+        <thead class="bg-slate-50">
+          <tr>
+            <th class="p-3 text-left">Date</th>
+            <th class="p-3 text-left">Course</th>
+            <th class="p-3 text-left">Seats</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-t"><td class="p-3">2025-12-01</td><td class="p-3">BLS (Morning)</td><td class="p-3">20</td></tr>
+          <tr class="border-t"><td class="p-3">2025-12-15</td><td class="p-3">BLS (Evening)</td><td class="p-3">18</td></tr>
+          <tr class="border-t"><td class="p-3">2026-01-10</td><td class="p-3">BLS Instructor</td><td class="p-3">12</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Embedded Google Form (collapsible) -->
+  <section class="max-w-4xl mx-auto px-4 py-8">
+    <details class="bg-white p-4 rounded shadow-sm">
+      <summary class="font-semibold cursor-pointer">Open: Register (Google Form)</summary>
+      <div class="mt-4">
+        <iframe src="https://docs.google.com/forms/d/e/F4zgvXak24ZthJP57/viewform?embedded=true" class="w-full h-600 border rounded" title="ACRT Registration Form"></iframe>
+        <p class="text-sm text-slate-500 mt-2">If the embedded form does not load, open the form in a new tab: <a class="text-blue-600 underline" href="https://forms.gle/F4zgvXak24ZthJP57" target="_blank">Open registration form</a></p>
+      </div>
+    </details>
+  </section>
+
+  <!-- Contact / Footer -->
+  <section id="contact" class="max-w-6xl mx-auto px-4 py-10 bg-slate-50 rounded-lg">
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="p-4">
+        <h4 class="font-semibold">Contact</h4>
+        <p class="text-sm text-slate-600">Address: Forensic Department Office, Allama Iqbal Medical College, Lahore</p>
+        <p class="text-sm text-slate-600">Phone: +92 322 2745619</p>
+        <p class="text-sm text-slate-600">Email: acrt@example.org</p>
+      </div>
+      <div class="p-4">
+        <h4 class="font-semibold">Quick Message</h4>
+        <form onsubmit="event.preventDefault(); alert('Message sent (demo)')" class="space-y-2">
+          <input class="w-full border p-2 rounded" placeholder="Your name" required />
+          <input class="w-full border p-2 rounded" placeholder="Email" required />
+          <textarea class="w-full border p-2 rounded" placeholder="Message" rows="4" required></textarea>
+          <button class="px-4 py-2 bg-blue-600 text-white rounded">Send message</button>
+        </form>
+      </div>
+    </div>
+
+    <footer class="mt-8 text-center text-sm text-slate-600">© "ACRT" {new Date().getFullYear()} • AIMCAANA Centre for Resuscitation Training</footer>
+  </section>
+
+  <script>
+    // Mobile menu toggle
+    const mobileBtn = document.getElementById('mobileBtn')
+    const mobileMenu = document.getElementById('mobileMenu')
+    const closeMobile = document.getElementById('closeMobile')
+    function closeMenu(){ mobileMenu.classList.add('hidden') }
+    mobileBtn && mobileBtn.addEventListener('click', ()=>{ mobileMenu.classList.remove('hidden') })
+    closeMobile && closeMobile.addEventListener('click', ()=>{ mobileMenu.classList.add('hidden') })
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', function(e){
+        e.preventDefault();
+        const id = this.getAttribute('href').slice(1);
+        if(!id) return;
+        document.getElementById(id).scrollIntoView({behavior:'smooth'});
+      })
+    })
+  </script>
+</body>
+</html>
